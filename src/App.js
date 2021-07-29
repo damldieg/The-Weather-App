@@ -15,6 +15,7 @@ export default function App() {
       .then((recurso) => {
         if(recurso.main !== undefined && cities.length < 8 ){ 
           const ciudad = {
+            act: Math.round(recurso.main.temp),
             min: Math.round(recurso.main.temp_min),
             max: Math.round(recurso.main.temp_max),
             img: recurso.weather[0].icon,
@@ -45,7 +46,7 @@ export default function App() {
     <div className="App">
       { /* Tu código acá: */ }
       <Nav
-        titulo= "The Weather App"
+        titulo= "Weather App"
         onSearch= {onSearch}
         />
       

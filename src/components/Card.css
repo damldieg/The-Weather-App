@@ -22,6 +22,11 @@
   font-size: 2rem;
 }
 
+.card-temp {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.7rem;
+}
 .card-subtitle {
   margin-bottom: 15px;
   text-align: center;

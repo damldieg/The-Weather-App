@@ -3,7 +3,7 @@ import './Card.css';
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 
-export default function Card ({min, max, name, img, onClose, id, weather}) {
+export default function Card ({min, max, name, img, onClose, id, weather, act}) {
     return (
       <div className="card">
         <div id="closeIcon" className="row">
@@ -11,6 +11,7 @@ export default function Card ({min, max, name, img, onClose, id, weather}) {
         </div>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
+          <h5 className="card-temo">{act}°</h5>
           <h6 className="card-subtitle">({weather})</h6>
           <div className="row">
             <div className="col-sm-4 col-md-4 col-lg-4">
