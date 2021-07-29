@@ -10,7 +10,7 @@ export default function App() {
   const apiKey = '79cd9ba3c0c6f51e69332a75e765e856'
 
   function onSearch(ciudad) {
-    fetch(`httpS://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined && cities.length < 8 ){ 
@@ -48,13 +48,21 @@ export default function App() {
         titulo= "The Weather App"
         onSearch= {onSearch}
         />
-
-      <Cards
-      cities={cities}
-      onClose={onClose}
-       />
+      
+      {cities.length > 0 ? (
+            <>
+              <Cards cities={cities} onClose={onClose} />
+            </>
+          ) : (
+            <span
+              className="empty"
+            >
+              Agrega una nueva ciudad
+            </span>
+          )}
+      
         
       
-    </div>
+  </div>
   );
 }

@@ -9,6 +9,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Gowun Dodum', sans-serif;
+  text-align: center;
 }
 
 
+.empty {
+  font-size: 3rem;
+  font-weight: 400;
+}
