@@ -9,13 +9,16 @@ export default function SearchBar({onSearch}) {
     <form className="search" onSubmit={(e) => {
       e.preventDefault();
       onSearch(city);
+      document.getElementById("bar").value = "";
     }}>
       <input
+        id="bar"
         type="text"
         placeholder="Ciudad..."
         className="barra"
-        value={city}
+        //value={city}
         onChange={e => setCity(e.target.value)}
+        autocomplete ="off"
       />
       <button type="submit"  className="boton"><IoSearch/></button>
     </form>
