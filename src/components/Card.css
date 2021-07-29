@@ -17,15 +17,14 @@
 
 
 .card-title {
-  margin-bottom: 15px;
   text-align: center;
   font-size: 2rem;
 }
 
 .card-temp {
-  margin-bottom: 15px;
+  margin-bottom: 10px 0;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 .country {
@@ -34,7 +33,7 @@
 }
 
 .card-subtitle {
-  margin-bottom: 15px;
+  margin: 10px 0;
   text-align: center;
   font-size: 1.3rem;
 }
