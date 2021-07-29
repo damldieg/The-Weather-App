@@ -15,6 +15,7 @@ export default function App() {
       .then((recurso) => {
         if(recurso.main !== undefined && cities.length < 8 ){ 
           const ciudad = {
+            country: recurso.sys.country,
             act: Math.round(recurso.main.temp),
             min: Math.round(recurso.main.temp_min),
             max: Math.round(recurso.main.temp_max),
