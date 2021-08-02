@@ -5,11 +5,12 @@
   height: 100vh;
   position: absolute;
   background-color: #548CA8;
-  background-image: url('./mathew-schwartz-GNSRazeH00I-unsplash.jpg');
+  background-image: url('./jackson-hendry-eodA_8CTOFo-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Gowun Dodum', sans-serif;
   text-align: center;
+  overflow: hidden;
 }
 
 
@@ -18,3 +19,4 @@
   font-weight: 400;
   color: aliceblue;
 }
+

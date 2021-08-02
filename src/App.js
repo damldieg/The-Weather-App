@@ -1,70 +1,64 @@
-import React, { useState } from 'react';
-import './App.css';
-import Nav from './components/Nav.jsx'
-import Cards  from './components/Cards.jsx';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+
+import fetchCity from "./services/fetchCity";
+
+import styles from "./App.module.css";
+import CitiesPage from "./views/CitiesPage";
+import CityDetail from "./views/CityDetail";
+import Nav from "./components/Nav";
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 
 
 export default function App() {
-  const [cities, setCities] = useState([]);
-  const apiKey = '79cd9ba3c0c6f51e69332a75e765e856'
+  const [data, setData] = React.useState([]);
 
   function onSearch(ciudad) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
-      .then(r => r.json())
-      .then((recurso) => {
-        if(recurso.main !== undefined && cities.length < 8 ){ 
-          const ciudad = {
-            country: recurso.sys.country,
-            act: Math.round(recurso.main.temp),
-            min: Math.round(recurso.main.temp_min),
-            max: Math.round(recurso.main.temp_max),
-            img: recurso.weather[0].icon,
-            id: recurso.id,
-            wind: recurso.wind.speed,
-            temp: recurso.main.temp,
-            name: recurso.name,
-            weather: recurso.weather[0].description,
-            clouds: recurso.clouds.all,
-            latitud: recurso.coord.lat,
-            longitud: recurso.coord.lon
-          };
-          setCities(oldCities => [...oldCities, ciudad]);
-        } else if(cities.length === 8){
-          alert("Maximo de ciudades alcanzado")
-        }else {
-          alert("Ciudad no encontrada");
-        }
-      });
-
+    if (data.length > 2) {
+      alert("No puedes agregar más ciudades.");
+    } else {
+      fetchCity(ciudad, setData);
     }
+  }
 
-    function onClose(id) {
-      setCities(oldCities => oldCities.filter(c => c.id !== id));
-    }
+  function handleOnClose(id) {
+    setData((prevData) => {
+      return prevData.filter((city) => city.id !== id);
+    });
+  }
+
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       { /* Tu código acá: */ }
       <Nav
         titulo= "Weather App"
         onSearch= {onSearch}
         />
-      
-      {cities.length > 0 ? (
-            <>
-              <Cards cities={cities} onClose={onClose} />
-            </>
-          ) : (
-            <span
-              className="empty"
-            >
-              Agrega una nueva ciudad
-            </span>
-          )}
-      
-        
+
+      <Switch>
+        <Route exact path="/">
+        <CitiesPage
+            data={data}
+            handleOnClose={handleOnClose}
+          />
+        </Route>
+        <Route exact path="/about"
+         component={About}/>  
+         <Route exact path="/card/:id"
+           render={({ match, history }) => {
+            const id = parseInt(match.params.id);
+            return <CityDetail id={id} onBack={history.goBack} />;
+          }}/>
+      </Switch>
+      <Footer 
+      titulo="Weather App"
+      instagram="https://www.instagram.com/"
+      github="https://github.com/damldieg" 
+      linkedin="https://www.linkedin.com/in/damianldiego/"/>
       
   </div>
   );
-}
+} 

@@ -1,9 +1,9 @@
 .card {
-  margin: 20px;
-  width: 18rem;
+  margin: 10px 20px;
+  width: 30%;
   background-color: rgba(240, 248, 255, 0.288);
   backdrop-filter: blur(3px);
-  color: rgb(20, 19, 19);
+  color: aliceblue;
   border: .5px solid aliceblue;
   border-radius: 2rem;
   -webkit-box-shadow: 6px 0px 36px -7px rgba(0,0,0,0.75);
@@ -19,6 +19,13 @@
 .card-title {
   text-align: center;
   font-size: 2rem;
+  color: aliceblue;
+}
+
+.card-title:hover { 
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: bold;
 }
 
 .card-temp {
@@ -55,3 +62,44 @@
   color: rgb(75, 77, 78);
 }
 
+
+
+@media (max-width: 600px) {
+  .card {
+    margin: 10px 20px;
+    width: 80%;
+    bottom: 10%
+  }
+
+  .card + .card {
+    display: none;
+  }
+
+  .card:hover { 
+    transform: none;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .res {
+    width: 25%;
+  }
+}
+
+@media (min-width:600px) and (max-width: 1200px) {
+  .card {
+    margin: 10px 20px;
+    width: 40%;
+  }
+
+  .card + .card + .card {
+    display: none;
+  }
+
+  .card:hover { 
+    transform: none;
+  }
+}

@@ -3,9 +3,7 @@
     padding: 1rem;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 1px solid rgb(247, 243, 243);
-    background-color:rgba(192, 188, 188, 0.26);
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
 }
 
 
@@ -16,6 +14,15 @@
     padding: 0.1rem .5rem;
     margin-left: 1rem;
     color: aliceblue;
+    font-size: 2rem;
+}
+
+.title:hover {
+    padding: 0.1rem .5rem;
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+
 }
 
 .search {
@@ -59,3 +66,30 @@
 .boton:focus{
     outline: none;
 }
+
+
+
+@media (max-width: 600px) {
+    .title {
+        margin: auto;
+        padding: 0.1rem .5rem;
+        color: aliceblue;
+        font-size: 2rem;
+    }
+
+    .barra {
+        border-radius: 9999px;
+        background-color: transparent;
+        border: transparent;
+        padding: .5rem 1rem;
+        width: 70%;
+    }
+
+    .search {
+        border: 1px solid rgb(233, 231, 231);
+        border-radius: 9999px;
+        margin: auto ;
+    }
+
+
+  }

@@ -1,0 +1,51 @@
+.footer {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: aliceblue;
+    text-align: center;
+    margin-top: 1rem;
+
+}
+
+.about {
+    color: aliceblue;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+}
+
+.about:hover {
+    color:aliceblue;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+
+
+.redes {
+    font-size: 1.5rem;
+    margin-right: 1rem ;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+
+
+
+.iconos + .iconos { 
+    margin-left: 2rem;
+}
+
+.iconos {
+    color: aliceblue;
+}
+
+.iconos:hover {
+    color:aliceblue;
+    font-size: 1.8rem;
+    text-decoration: none;
+}

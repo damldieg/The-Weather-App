@@ -1,24 +1,26 @@
 import React from 'react';
 import './Card.css';
 import { IoCloseCircleOutline } from "react-icons/io5";
+import {Link} from 'react-router-dom';
 
 
-export default function Card ({min, max, name, img, onClose, id, weather, act,country}) {
+export default function Card (props) {
+    const {min, max, name, img, handleOnClose, id, weather, act,country} = props;
     return (
       <div className="card">
         <div id="closeIcon" className="row">
-            <button onClick={onClose} className="boton"><IoCloseCircleOutline/></button>
+            <button onClick={handleOnClose} className="boton"><IoCloseCircleOutline/></button>
         </div>
         <div className="card-body">
-          <h5 className="card-title">{name}<span className="country">({country})</span></h5>
-          <h5 className="card-temo">{act}°</h5>
+          <Link to={"/card/"+id} className="card-title">{name}<span className="country">({country})</span></Link>
+          <h5 className="card-temp">{act}°</h5>
           <h6 className="card-subtitle">({weather})</h6>
           <div className="row">
-            <div className="col-sm-4 col-md-4 col-lg-4">
+            <div className="col-sm-4 col-md-4 col-lg-4 res">
               <p>Min</p>
               <p>{min}°</p>
             </div>
-            <div className="col-sm-4 col-md-4 col-lg-4">
+            <div className="col-sm-4 col-md-4 col-lg-4 res">
               <p>Max</p>
               <p>{max}°</p>
             </div>
